@@ -19,19 +19,31 @@ public class GatewayApplication {
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
 			.route(p -> p
-				.path("/products**")
+				.path("/products")
 				.uri("http://catalog-service:8810/"))
 			.route(p -> p
-				.path("/admin/products**")
+				.path("/products/**")
 				.uri("http://catalog-service:8810/"))
 			.route(p -> p
-				.path("/users**")
+				.path("/admin/products")
+				.uri("http://catalog-service:8810/"))
+			.route(p -> p
+				.path("/admin/products/**")
+				.uri("http://catalog-service:8810/"))
+			.route(p -> p
+				.path("/users")
 				.uri("http://user-service:8811/"))
 			.route(p -> p
-				.path("/cart**")
+				.path("/users/**")
+				.uri("http://user-service:8811/"))
+			.route(p -> p
+				.path("/cart")
 				.uri("http://order-service:8813/"))
 			.route(p -> p
-				.path("/order**")
+				.path("/cart/**")
+				.uri("http://order-service:8813/"))
+			.route(p -> p
+				.path("/order/**")
 				.uri("http://order-service:8813/"))
 			.build();
 	} 
