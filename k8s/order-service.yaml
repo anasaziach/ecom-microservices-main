@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: order-service
-        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/order-service:latest
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/order-service:1.0
         ports:
         - containerPort: 8813
 

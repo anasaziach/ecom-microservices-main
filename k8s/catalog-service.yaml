@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: catalog-service
-        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/product-catalog-service:latest
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/product-catalog-service:1.0
         resources:
           requests:
             memory: 512Mi
