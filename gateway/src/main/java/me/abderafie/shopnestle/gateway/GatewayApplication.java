@@ -19,6 +19,9 @@ public class GatewayApplication {
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
 			.route(p -> p
+				.path("/login")
+				.uri("http://catalog-service:8810/"))
+			.route(p -> p
 				.path("/products")
 				.uri("http://catalog-service:8810/"))
 			.route(p -> p
