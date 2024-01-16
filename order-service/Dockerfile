@@ -3,7 +3,10 @@ FROM maven:3.8.4-openjdk-17 AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
+RUN echo "hhh"
 RUN mvn clean package
+
+
 
 # Use an OpenJDK image to run the application
 FROM openjdk:19-alpine
