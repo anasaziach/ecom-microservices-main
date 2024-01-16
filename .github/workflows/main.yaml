@@ -7,9 +7,9 @@ on:
   pull_request:
     branches:
       - main
-# europe-central2-docker.pkg.dev/project-762066161/nestleshop
+# europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop
 env:
-  PROJECT_ID: project-762066161 # TODO: update Google Cloud project id
+  PROJECT_ID: inspiring-tower-411321 # TODO: update Google Cloud project id
   GAR_LOCATION: europe-central2 # TODO: update Artifact Registry location
   SERVICE: nestleshop # TODO: update Cloud Run service name
   REGION: europe-central2 # TODO: update Cloud Run service region

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: catalog-service
-        image: europe-central2-docker.pkg.dev/project-762066161/nestleshop/product-catalog-service:latest
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/product-catalog-service:latest
         ports:
         - containerPort: 8810
 

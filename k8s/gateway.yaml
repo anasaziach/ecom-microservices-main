@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: europe-central2-docker.pkg.dev/project-762066161/nestleshop/gateway:latest
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/gateway:latest
         ports:
         - containerPort: 8080
 
