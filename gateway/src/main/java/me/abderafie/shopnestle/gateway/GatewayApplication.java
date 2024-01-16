@@ -19,9 +19,6 @@ public class GatewayApplication {
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
 			.route(p -> p
-				.path("/login")
-				.uri("http://catalog-service:8810/"))
-			.route(p -> p
 				.path("/products")
 				.uri("http://catalog-service:8810/"))
 			.route(p -> p
@@ -33,6 +30,9 @@ public class GatewayApplication {
 			.route(p -> p
 				.path("/admin/products/**")
 				.uri("http://catalog-service:8810/"))
+			.route(p -> p
+				.path("/login")
+				.uri("http://user-service:8811/"))
 			.route(p -> p
 				.path("/users")
 				.uri("http://user-service:8811/"))
