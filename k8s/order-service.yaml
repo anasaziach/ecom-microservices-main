@@ -14,9 +14,11 @@ spec:
       labels:
         app: order-service
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
       - name: order-service
-        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/order-service:1.0.2
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/order-service:1.0.2
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8813
 
