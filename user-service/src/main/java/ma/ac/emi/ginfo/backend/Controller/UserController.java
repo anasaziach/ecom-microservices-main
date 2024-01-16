@@ -3,7 +3,9 @@ package ma.ac.emi.ginfo.backend.Controller;
 import ma.ac.emi.ginfo.backend.entity.User;
 import ma.ac.emi.ginfo.backend.http.header.HeaderGenerator;
 import ma.ac.emi.ginfo.backend.Services.*;
+import ma.ac.emi.ginfo.backend.models.UserLoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,7 @@ import java.util.List;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -18,6 +21,20 @@ public class UserController {
     
     @Autowired
     private HeaderGenerator headerGenerator;
+	@PostMapping("/login")
+	public ResponseEntity<User> login(@RequestBody UserLoginDTO user , HttpServletRequest request){
+		System.out.println(user.toString());
+		User userr = this.userService.login(user);
+		if(userr != null)
+			try {
+				HttpHeaders headers = headerGenerator.getHeadersForSuccessPostMethod(request, userr.getId());
+				return new ResponseEntity<>(userr, headers, HttpStatus.OK);
+			}catch (Exception e) {
+				e.printStackTrace();
+				return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
+	}
     
     @GetMapping (value = "/users")
     public ResponseEntity<List<User>> getAllUsers(){

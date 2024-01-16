@@ -20,6 +20,8 @@ public class User {
 
     @Column (name = "user_name", nullable = false, unique = true, length = 50)
     private String userName;
+	@Column (name = "email", nullable = false, unique = true, length = 50)
+	private String email;
     @Column (name = "user_password", nullable = false, length = 50)
     private String userPassword;
     @Column (name = "active")
@@ -79,5 +81,13 @@ public class User {
 
 	public void setRole(UserRole role) {
 		this.role = role;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

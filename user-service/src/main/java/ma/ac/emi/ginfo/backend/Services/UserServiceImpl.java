@@ -4,6 +4,7 @@ import ma.ac.emi.ginfo.backend.entity.User;
 import ma.ac.emi.ginfo.backend.entity.UserRole;
 import ma.ac.emi.ginfo.backend.Repositories.UserRepository;
 import ma.ac.emi.ginfo.backend.Repositories.UserRoleRepository;
+import ma.ac.emi.ginfo.backend.models.UserLoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,5 +41,19 @@ public class UserServiceImpl implements UserService {
         UserRole role = userRoleRepository.findUserRoleByRoleName("ROLE_USER");
         user.setRole(role);
         return userRepository.save(user);
+    }
+
+    @Override
+    public User login(UserLoginDTO user) {
+        try{
+            if(userRepository.findByEmailAndUserPassword(user.getEmail(), user.getPassword()).isPresent()) {
+                return userRepository.findByEmailAndUserPassword(user.getEmail(), user.getPassword()).get();
+            }
+            else{
+                throw new RuntimeException("user not found");
+            }
+        }catch(Exception e){
+        }
+        return null;
     }
 }
