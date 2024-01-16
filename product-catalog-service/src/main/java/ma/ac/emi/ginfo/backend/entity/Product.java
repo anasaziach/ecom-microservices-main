@@ -34,6 +34,10 @@ public class Product {
     @NotNull
     private int availability;
 
+	@Column (name = "img")
+    @NotNull
+    private String imgUrl;
+
 	public Product() {
 
 	}
@@ -84,5 +88,11 @@ public class Product {
 
 	public void setAvailability(int availability) {
 		this.availability = availability;
-	} 
+	}
+	public String getImgUrl(){
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl){
+		this.imgUrl = imgUrl;
+	}
 }
