@@ -33,7 +33,7 @@ public class OrderController {
     @Autowired
     private HeaderGenerator headerGenerator;
     
-    @PostMapping(value = "/order/{userId}")
+    @PostMapping(value = "/cart/order/{userId}")
     public ResponseEntity<Order> saveOrder(
     		@PathVariable("userId") Long userId,
     		@RequestHeader(value = "Cookie") String cartId,

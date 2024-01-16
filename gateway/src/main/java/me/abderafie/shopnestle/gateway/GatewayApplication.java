@@ -14,7 +14,7 @@ public class GatewayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayApplication.class, args);
 	}
-	
+
 	@Bean
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
@@ -34,5 +34,5 @@ public class GatewayApplication {
 				.path("/order**")
 				.uri("http://order-service:8813/"))
 			.build();
-	}
+	} 
 }
