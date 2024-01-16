@@ -30,6 +30,9 @@ public class GatewayApplication {
 			.route(p -> p
 				.path("/cart**")
 				.uri("http://order-service:8813/"))
+			.route(p -> p
+				.path("/order**")
+				.uri("http://order-service:8813/"))
 			.build();
 	}
 }

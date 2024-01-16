@@ -5,6 +5,10 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package
 
+
+
+
+
 # Use an OpenJDK image to run the application
 FROM openjdk:19-alpine
 WORKDIR /app

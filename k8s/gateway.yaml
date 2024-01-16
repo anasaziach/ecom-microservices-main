@@ -14,9 +14,11 @@ spec:
       labels:
         app: gateway
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
       - name: gateway
         image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/gateway:latest
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
 
