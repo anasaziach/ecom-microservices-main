@@ -1,0 +1,28 @@
+
+
+
+
+
+<div class="p-2 w-8/12 m-auto flex flex-col">
+  <h1 class="text-2xl font-bold text-center">Cart</h1>
+  <div class="display flex flex-col gap-5  my-10">
+  <app-product-cart 
+    *ngFor="let cartItem of cartItems" [product]="cartItem.product"
+    [quantity]="cartItem.quantity"
+    
+    ></app-product-cart>
+  </div>
+  <div class="text-lg self-end ">
+    Total : <span class="font-bold">5000 $</span>
+  </div>
+
+  <button class="bg-black text-white p-2 rounded-sm text-md self-end my-7">
+    Checkout
+  </button>
+
+</div>
+
+
+<div *ngIf="cartItems.length === 0">
+    Your cart is empty.
+</div>

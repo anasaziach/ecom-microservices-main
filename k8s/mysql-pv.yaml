@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadOnlyMany
+  gcePersistentDisk:
+    pdName: pvc-1b9e63eb-e3a0-4dd0-b127-e11c2f1dbf13
+    fsType: ext4

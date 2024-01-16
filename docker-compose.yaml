@@ -1,0 +1,61 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    volumes:
+        - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+      - MYSQL_DATABASE=mydb
+
+  user-service:
+    image: "europe-central2-docker.pkg.dev/project-762066161/nestleshop/user-service:latest"
+    build: ./user-service
+    container_name: user-service
+    hostname: user-service
+    ports:
+      - "8811:8811"
+    depends_on:
+      - mysql
+
+  catalog-service:
+    build: ./product-catalog-service
+    image: "europe-central2-docker.pkg.dev/project-762066161/nestleshop/product-catalog-service:latest"
+    container_name: catalog-service
+    hostname: catalog-service
+    ports:
+      - "8810:8810"
+    depends_on:
+      - user-service
+
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    image: "europe-central2-docker.pkg.dev/project-762066161/nestleshop/gateway:latest"
+    ports:
+     - "8080:8080"  
+  test-db:
+    build: ./test-db
+    container_name: test-db
+    image: "europe-central2-docker.pkg.dev/project-762066161/nestleshop/test-db:latest"
+    ports:
+     - "5000:5000"  
+  order-service:
+    build: ./order-service
+    container_name: order-service
+    image: "europe-central2-docker.pkg.dev/project-762066161/nestleshop/order-service:latest"
+    ports:
+     - "8813:8813"
+    depends_on:
+      - catalog-service
+      - redis
+    links:
+      - redis
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+     - "6379:6379"

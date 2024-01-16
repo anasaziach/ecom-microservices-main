@@ -1,0 +1,17 @@
+
+<div class="bg-gray-800 py-2 px-4 flex justify-between items-center h-50">
+    <h1 class="text-white text-lg font-bold">Nestle Shop</h1>
+    <div class="flex items-center gap-4">
+      <div class="text-white hover:text-blue-300 rounded-lg py-2 px-4 cursor-pointer"
+        (click)="routeToHome()"
+      >Home</div>
+      <div class="text-white hover:text-blue-300 rounded-lg py-2 px-4 cursor-pointer"
+        (click)="routeToCart()"
+      >Cart</div>
+      <div class="text-white hover:text-blue-300 rounded-lg py-2 px-4 cursor-pointer"
+        (click)="routeToCart()"
+      >User</div>
+    </div>
+  </div>
+  
+<router-outlet></router-outlet>

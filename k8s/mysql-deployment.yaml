@@ -1,0 +1,49 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: mysql
+  template:
+    metadata:
+      labels:
+        name: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:latest
+        resources:
+          requests:
+            memory: "512Mi"   # Adjust memory request based on your requirements
+            cpu: "400m"       # Adjust CPU request based on your requirements
+          limits:
+            memory: "1Gi"     # Adjust memory limit based on your requirements
+            cpu: "700m"   
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: my-secret-pw   # Change this to a secure password
+          - name: MYSQL_DATABASE
+            value: mydb   # Change this to your desired database name
+        ports:
+          - containerPort: 3306
+            protocol: TCP
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+        - name: mysql-preload-data
+          mountPath: /docker-entrypoint-initdb.d/init.sql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pvc
+      - name: mysql-preload-data
+        configMap:
+          name: mysql-preload-data-config
+
+
+
+

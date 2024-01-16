@@ -1,0 +1,13 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-preload-data-config
+  labels:
+    name: mysql-pvc
+    app: mysql-deployment
+data:
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS products ;
+    CREATE DATABASE IF NOT EXISTS orders ;
+    `
