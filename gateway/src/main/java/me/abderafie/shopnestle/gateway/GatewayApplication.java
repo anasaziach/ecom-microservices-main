@@ -27,9 +27,10 @@ public class GatewayApplication {
 		CorsConfiguration corsConfig = new CorsConfiguration();
 		corsConfig.applyPermitDefaultValues();
 		corsConfig.addAllowedMethod("DELETE");
-		corsConfig.addAllowedMethod("POST");
-		corsConfig.addAllowedMethod("GET");
 		corsConfig.addAllowedMethod("PUT");
+		corsConfig.addAllowedMethod("GET");
+		corsConfig.addAllowedMethod("POST");
+		corsConfig.addAllowedOrigin("http://localhost:4200");
 
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfig);
