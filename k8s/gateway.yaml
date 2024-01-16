@@ -17,7 +17,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: gateway
-        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/gateway:1.0.5
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/gateway:1.0.6
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
