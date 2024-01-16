@@ -14,7 +14,7 @@ import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 @SpringBootApplication
 public class GatewayApplication {
 
@@ -22,21 +22,21 @@ public class GatewayApplication {
 		SpringApplication.run(GatewayApplication.class, args);
 	}
 
-	@Bean
-	public CorsWebFilter corsWebFilter() {
-		CorsConfiguration corsConfig = new CorsConfiguration();
-		corsConfig.applyPermitDefaultValues();
-		corsConfig.addAllowedMethod("DELETE");
-		corsConfig.addAllowedMethod("PUT");
-		corsConfig.addAllowedMethod("GET");
-		corsConfig.addAllowedMethod("POST");
-		corsConfig.addAllowedOrigin("http://localhost:4200");
-
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", corsConfig);
-
-		return new CorsWebFilter(source);
-	}
+//	@Bean
+//	public CorsWebFilter corsWebFilter() {
+//		CorsConfiguration corsConfig = new CorsConfiguration();
+//		corsConfig.applyPermitDefaultValues();
+//		corsConfig.addAllowedMethod("DELETE");
+//		corsConfig.addAllowedMethod("PUT");
+//		corsConfig.addAllowedMethod("GET");
+//		corsConfig.addAllowedMethod("POST");
+//		corsConfig.addAllowedOrigin("http://localhost:4200");
+//
+//		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//		source.registerCorsConfiguration("/**", corsConfig);
+//
+//		return new CorsWebFilter(source);
+//	}
 
 	@Bean
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
