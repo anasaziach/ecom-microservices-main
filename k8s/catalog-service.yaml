@@ -5,7 +5,7 @@ metadata:
   labels:
     app: catalog-service
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: catalog-service
@@ -17,8 +17,21 @@ spec:
       containers:
       - name: catalog-service
         image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/product-catalog-service:latest
+        resources:
+          requests:
+            memory: 512Mi
+            cpu: 500m
+          limits:
+            memory: 1024Mi
+            cpu: 1000m
         ports:
         - containerPort: 8810
+    # spec:
+    #   containers:
+    #   - name: catalog-service
+    #     image: europe-central2-docker.pkg.dev/inspiring-tower-411321/nestleshop/product-catalog-service:latest
+    #     ports:
+    #     - containerPort: 8810
 
 ---
 
