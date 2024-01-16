@@ -10,7 +10,7 @@ import ma.ac.emi.ginfo.backend.entity.Product;
 import ma.ac.emi.ginfo.backend.http.header.HeaderGenerator;
 
 import java.util.List;
-
+ 
 @RestController
 public class ProductController {
 
@@ -19,7 +19,10 @@ public class ProductController {
     
     @Autowired
     private HeaderGenerator headerGenerator;
-
+    @GetMapping("/products/test")
+    public String getTest(){
+        return "get test in product controller";
+    }
     @GetMapping (value = "/products")
     public ResponseEntity<List<Product>> getAllProducts(){
         List<Product> products =  productService.getAllProduct();
