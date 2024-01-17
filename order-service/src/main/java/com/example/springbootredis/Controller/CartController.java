@@ -32,22 +32,21 @@ public class CartController {
 	// 			HttpStatus.OK);
     // }
 
-    // @GetMapping (value = "/cart")
-    // public ResponseEntity<List<Item>> getCart(@RequestHeader(value = "Cookie") String cartId){
-    //     List<Item> cart = cartService.getCart(cartId);
-    //     if(!cart.isEmpty()) {
-    //     	return new ResponseEntity<List<Item>>(
-    //     			cart,
-    //     			headerGenerator.getHeadersForSuccessGetMethod(),
-    //     			HttpStatus.OK);
-    //     }
-    // 	return new ResponseEntity<List<Item>>(
-    // 			headerGenerator.getHeadersForError(),
-    // 			HttpStatus.NOT_FOUND);  
-    // }
-	// @GetMapping
+    @GetMapping (value = "/cart/getCart/{Cookie}")
+    public ResponseEntity<List<Item>> getCart(@PathVariable("Cookie") String cartId){
+        List<Item> cart = cartService.getCart(cartId);
+        if(!cart.isEmpty()) {
+        	return new ResponseEntity<List<Item>>(
+        			cart,
+        			headerGenerator.getHeadersForSuccessGetMethod(),
+        			HttpStatus.OK);
+        }
+    	return new ResponseEntity<List<Item>>(
+    			headerGenerator.getHeadersForError(),
+    			HttpStatus.NOT_FOUND);  
+    }
 
-    @GetMapping(value = "/cart/{Cookie}/{productId}/{quantity}")
+    @GetMapping(value = "/cart/addProductToCart/{Cookie}/{productId}/{quantity}")
     public ResponseEntity<List<Item>> addItemToCart(
             @PathVariable("productId") Long productId,
             @PathVariable("quantity") Integer quantity,
