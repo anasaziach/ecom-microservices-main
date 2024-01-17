@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/user-service:1.1.8
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/user-service:1.1.9
         ports:
         - containerPort: 8811
           protocol: TCP

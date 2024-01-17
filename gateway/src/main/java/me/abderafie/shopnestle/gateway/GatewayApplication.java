@@ -20,12 +20,12 @@ public class GatewayApplication {
 	@Bean
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
-			.route(p -> p
-				.path("/products")
-				.uri("http://catalog-service:8810/"))
-			.route(p -> p
-				.path("/products/**")
-				.uri("http://catalog-service:8810/"))
+			// .route(p -> p
+			// 	.path("/products")
+			// 	.uri("http://catalog-service:8810/"))
+			// .route(p -> p
+			// 	.path("/products/**")
+			// 	.uri("http://catalog-service:8810/"))
 			.route(p -> p
 				.path("/admin/products")
 				.uri("http://catalog-service:8810/"))
