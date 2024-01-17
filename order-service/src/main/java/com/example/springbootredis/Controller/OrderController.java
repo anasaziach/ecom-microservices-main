@@ -33,10 +33,10 @@ public class OrderController {
     @Autowired
     private HeaderGenerator headerGenerator;
     
-    @GetMapping(value = "/order/{userId}")
+    @GetMapping(value = "/order/{userId}/{Cookie}")
     public ResponseEntity<Order> saveOrder(
     		@PathVariable("userId") Long userId,
-    		@RequestHeader(value = "Cookie") String cartId,
+    		@PathVariable("Cookie") String cartId,
     		HttpServletRequest request){
     	
         List<Item> cart = cartService.getAllItemsFromCart(cartId);
