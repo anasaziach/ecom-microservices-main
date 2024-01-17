@@ -24,6 +24,7 @@ public class RegisterController {
     private HeaderGenerator headerGenerator;
     
     @PostMapping(value = "/registration")
+	@CrossOrigin("http://localhost:4200")
     public ResponseEntity<User> addUser(@RequestBody User user, HttpServletRequest request){
     	if(user != null)
     		try {
