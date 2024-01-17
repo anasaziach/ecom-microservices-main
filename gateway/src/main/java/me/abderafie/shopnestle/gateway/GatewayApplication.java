@@ -14,7 +14,7 @@ import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = {"*","http://localhost:4200"})
 @SpringBootApplication
 public class GatewayApplication {
 
