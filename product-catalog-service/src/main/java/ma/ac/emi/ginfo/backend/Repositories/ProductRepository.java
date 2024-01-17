@@ -1,5 +1,6 @@
 package ma.ac.emi.ginfo.backend.Repositories;
 
+import ma.ac.emi.ginfo.backend.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    public List<Product> findAllByCategory(String category);
-    public List<Product> findAllByProductName(String name);
+    List<Product> findByCategory(Category category);
+//    public List<Product> findAllByProductName(String name);
 }

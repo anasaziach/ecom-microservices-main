@@ -12,6 +12,7 @@ import ma.ac.emi.ginfo.backend.http.header.HeaderGenerator;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/admin")
 public class AdminProductController {
 
@@ -20,9 +21,8 @@ public class AdminProductController {
     
     @Autowired
     private HeaderGenerator headerGenerator;
-
-    @PostMapping(value = "/products/")
-    private ResponseEntity<Product> addProduct(@RequestBody Product product, HttpServletRequest request){
+    @PostMapping(value = "/products")
+    public ResponseEntity<Product> addProduct(@RequestBody Product product, HttpServletRequest request){
     	if(product != null) {
     		try {
     			productService.addProduct(product);
@@ -43,7 +43,7 @@ public class AdminProductController {
     }
     
     @DeleteMapping(value = "/products/{id}")
-    private ResponseEntity<Void> deleteProduct(@PathVariable("id") Long id){
+    public ResponseEntity<Void> deleteProduct(@PathVariable("id") Long id){
     	Product product = productService.getProductById(id);
     	if(product != null) {
     		try {

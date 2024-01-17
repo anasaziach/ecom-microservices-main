@@ -15,20 +15,25 @@ public class Product {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name = "product_name")
+    @Column (name = "title")
     @NotNull
-    private String productName;
+    private String title;
 
     @Column (name = "price")
     @NotNull
     private BigDecimal price;
 
-    @Column (name = "discription")
-    private String discription;
+    @Column (name = "description")
+    private String description;
 
     @Column (name = "category")
     @NotNull
-    private String category;
+	@Enumerated(EnumType.STRING)
+    private Category category;
+
+	@Column (name = "disponibility")
+	@NotNull
+	private boolean disponibility;
 
     @Column (name = "availability")
     @NotNull
@@ -37,6 +42,7 @@ public class Product {
 	@Column (name = "img")
     @NotNull
     private String imgUrl;
+
 
 	public Product() {
 
@@ -50,12 +56,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public BigDecimal getPrice() {
@@ -66,20 +72,28 @@ public class Product {
 		this.price = price;
 	}
 
-	public String getDiscription() {
-		return discription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDiscription(String discription) {
-		this.discription = discription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public boolean isDisponibility() {
+		return disponibility;
+	}
+
+	public void setDisponibility(boolean disponibility) {
+		this.disponibility = disponibility;
 	}
 
 	public int getAvailability() {
@@ -89,10 +103,36 @@ public class Product {
 	public void setAvailability(int availability) {
 		this.availability = availability;
 	}
-	public String getImgUrl(){
+
+	public String getImgUrl() {
 		return imgUrl;
 	}
-	public void setImgUrl(String imgUrl){
+
+	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public Product(String title, BigDecimal price, String description, Category category, boolean disponibility, int availability, String imgUrl) {
+		this.title = title;
+		this.price = price;
+		this.description = description;
+		this.category = category;
+		this.disponibility = disponibility;
+		this.availability = availability;
+		this.imgUrl = imgUrl;
+	}
+
+	@Override
+	public String toString() {
+		return "Product{" +
+				"id=" + id +
+				", title='" + title + '\'' +
+				", price=" + price +
+				", description='" + description + '\'' +
+				", category=" + category +
+				", disponibility=" + disponibility +
+				", availability=" + availability +
+				", imgUrl='" + imgUrl + '\'' +
+				'}';
 	}
 }
