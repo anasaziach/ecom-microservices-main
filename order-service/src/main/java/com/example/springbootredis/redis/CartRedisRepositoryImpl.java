@@ -13,6 +13,7 @@ import com.example.springbootredis.entity.Item;
 
 @Repository
 public class CartRedisRepositoryImpl implements CartRedisRepository{
+//public class CartRedisRepositoryImpl{
 
 	private static final String ITEM = "ITEM";
 	private RedisTemplate<String, Object> redisTemplate;
@@ -24,7 +25,7 @@ public class CartRedisRepositoryImpl implements CartRedisRepository{
 		this.redisTemplate = redisTemplate;
 		init();
 	}
-	
+
 	public void init() {
 		this.hashOperations = redisTemplate.opsForHash();
 	}
