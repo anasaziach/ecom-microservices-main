@@ -1,16 +1,8 @@
-cloud:
-  gateway:
-     routes:
-       - id: Student-Service
-         uri: http://catalog-service:8810/
-         predicates:
-           - Path=/products/**
-           - Path=/admin/products
-       - id: Course-Service
-         uri: lb://course-service
-         predicates:
-           - Path=/api/courses/**
-       - id: Inscription-Service
-         uri: lb://inscription-service
-         predicates:
-           - Path=/api/inscriptionsOpenFeign/**
+# cloud:
+#   gateway:
+#      routes:
+#        - id: Student-Service
+#          uri: http://catalog-service:8810/
+#          predicates:
+#            - Path=/products/**
+#            - Path=/admin/products
