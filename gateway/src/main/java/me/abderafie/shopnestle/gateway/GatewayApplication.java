@@ -33,7 +33,10 @@ public class GatewayApplication {
 				.path("/admin/products/**")
 				.uri("http://catalog-service:8810/"))
 			.route(p -> p
-				.path("/login**")
+				.path("/login")
+				.uri("http://user-service:8811/"))
+			.route(p -> p
+				.path("/registration")
 				.uri("http://user-service:8811/"))
 			.route(p -> p
 				.path("/users")
