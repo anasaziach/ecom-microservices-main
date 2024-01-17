@@ -36,6 +36,9 @@ public class GatewayApplication {
 				.path("/login")
 				.uri("http://user-service:8811/"))
 			.route(p -> p
+				.path("/login/**")
+				.uri("http://user-service:8811/"))
+			.route(p -> p
 				.path("/registration")
 				.uri("http://user-service:8811/"))
 			.route(p -> p

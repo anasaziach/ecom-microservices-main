@@ -22,9 +22,9 @@ public class UserController {
     
     @Autowired
     private HeaderGenerator headerGenerator;
-	@PostMapping("/login")
-	public ResponseEntity<User> login(@RequestBody UserLoginDTO user , HttpServletRequest request){
-		System.out.println(user.toString());
+	@GetMapping("/login/{email}/{password}")
+	public ResponseEntity<User> login(@PathVariable String email , @PathVariable String password , HttpServletRequest request){
+		UserLoginDTO user = new UserLoginDTO(email , password);
 		User userr = this.userService.login(user);
 		if(userr != null)
 			try {
