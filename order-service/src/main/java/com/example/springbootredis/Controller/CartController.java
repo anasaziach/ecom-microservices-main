@@ -46,11 +46,11 @@ public class CartController {
     			HttpStatus.NOT_FOUND);  
     }
 
-    @GetMapping(value = "/cart/{productId}/{quantity}")
+    @GetMapping(value = "/cart/cookie/{Cookie}/{productId}/{quantity}")
     public ResponseEntity<List<Item>> addItemToCart(
             @PathVariable("productId") Long productId,
             @PathVariable("quantity") Integer quantity,
-            @RequestHeader(value = "Cookie") String cartId,
+            @PathVariable("Cookie") String cartId,
             HttpServletRequest request) {
         List<Item> cart = cartService.getCart(cartId);
 		System.out.println("cartId: " + cart);
