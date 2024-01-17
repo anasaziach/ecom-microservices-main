@@ -46,10 +46,10 @@ public class CartController {
     			HttpStatus.NOT_FOUND);  
     }
 
-    @PostMapping(value = "/cart", params = {"productId", "quantity"})
+    @GetMapping(value = "/cart/{productId}/{quantity}")
     public ResponseEntity<List<Item>> addItemToCart(
-            @RequestParam("productId") Long productId,
-            @RequestParam("quantity") Integer quantity,
+            @PathVariable("productId") Long productId,
+            @PathVariable("quantity") Integer quantity,
             @RequestHeader(value = "Cookie") String cartId,
             HttpServletRequest request) {
         List<Item> cart = cartService.getCart(cartId);

@@ -33,7 +33,7 @@ public class OrderController {
     @Autowired
     private HeaderGenerator headerGenerator;
     
-    @PostMapping(value = "/order/{userId}")
+    @GetMapping(value = "/order/{userId}")
     public ResponseEntity<Order> saveOrder(
     		@PathVariable("userId") Long userId,
     		@RequestHeader(value = "Cookie") String cartId,
@@ -62,6 +62,10 @@ public class OrderController {
         		headerGenerator.getHeadersForError(),
         		HttpStatus.NOT_FOUND);
     }
+    // @GetMapping("/order/getOrders")
+    // public List<Order> getAllOrder(){
+    //     return null;
+    // }
 
 
     @GetMapping("/order/test")
