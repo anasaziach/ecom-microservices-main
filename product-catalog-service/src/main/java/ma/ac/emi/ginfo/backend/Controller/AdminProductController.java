@@ -26,13 +26,13 @@ public class AdminProductController {
     private HeaderGenerator headerGenerator;
     @GetMapping(value = "/products")
     public ResponseEntity<Product> addProduct(
-		@PathVariable String title,
-        @PathVariable BigDecimal price,
-        @PathVariable String description,
-        @PathVariable String category,
-        @PathVariable boolean disponibility,
-        @PathVariable int availability,
-        @PathVariable String imgUrl,
+		@RequestParam String title,
+        @RequestParam BigDecimal price,
+        @RequestParam String description,
+        @RequestParam String category,
+        @RequestParam boolean disponibility,
+        @RequestParam int availability,
+        @RequestParam String imgUrl,
 		HttpServletRequest request
 		){
 		Product product = new Product(title,price,description,Category.valueOf(category),disponibility,availability,imgUrl);
