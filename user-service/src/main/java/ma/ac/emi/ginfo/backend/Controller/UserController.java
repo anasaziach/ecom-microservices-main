@@ -36,6 +36,10 @@ public class UserController {
 			}
 		return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
 	}
+	@GetMapping("/login/test")
+	public String test(){
+		return "test";
+	}
     
     @GetMapping (value = "/users")
     public ResponseEntity<List<User>> getAllUsers(){
