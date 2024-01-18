@@ -90,4 +90,13 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public User(String userName, String email, String userPassword, int active, UserDetails userDetails, String role) {
+		this.userName = userName;
+		this.email = email;
+		this.userPassword = userPassword;
+		this.active = active;
+		this.userDetails = userDetails;
+		this.role = role;
+	}
 }
