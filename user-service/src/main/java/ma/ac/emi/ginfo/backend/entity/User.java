@@ -31,9 +31,9 @@ public class User {
     @JoinColumn (name = "user_details_id")
     private UserDetails userDetails;
 
-    @ManyToOne
-    @JoinColumn (name = "role_id")
-    private UserRole role;
+    
+    @JoinColumn (name = "role")
+    private String role;
 
 	public Long getId() {
 		return id;
@@ -75,11 +75,11 @@ public class User {
 		this.userDetails = userDetails;
 	}
 
-	public UserRole getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(UserRole role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 
