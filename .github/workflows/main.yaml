@@ -7,13 +7,13 @@ on:
   pull_request:
     branches:
       - main
-# europe-central2-docker.pkg.dev/inspiring-tower-411321/projet
+# europe-central2-docker.pkg.dev/inspiring-tower-411321/pi
 env:
   PROJECT_ID: inspiring-tower-411321 # TODO: update Google Cloud project id
   GAR_LOCATION: europe-central2 # TODO: update Artifact Registry location
-  SERVICE: projet # TODO: update Cloud Run service name
+  SERVICE: pi # TODO: update Cloud Run service name
   REGION: europe-central2 # TODO: update Cloud Run service region
-  CLUSTER_NAME: projet
+  CLUSTER_NAME: pi
 
 jobs:
   deploy:
