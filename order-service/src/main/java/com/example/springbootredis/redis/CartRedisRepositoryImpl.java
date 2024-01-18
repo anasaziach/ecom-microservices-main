@@ -59,6 +59,7 @@ public class CartRedisRepositoryImpl implements CartRedisRepository{
 
     @Override
     public void deleteCart(String key) {
+        hashOperations.delete(ITEM, key);
     }
 
     @Override

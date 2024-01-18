@@ -89,4 +89,12 @@ public class CartController {
         		headerGenerator.getHeadersForError(),
         		HttpStatus.NOT_FOUND);
     }
+	@GetMapping("/cart/delete/{id}")
+	public ResponseEntity<Void> removeCart(
+            @RequestParam("cartId") Long cartId){
+		this.cartService.deleteCart(String.valueOf(cartId));
+		return new ResponseEntity<Void>(
+			headerGenerator.getHeadersForSuccessGetMethod(),
+			HttpStatus.OK);
+    }
 }
