@@ -32,8 +32,8 @@ public class CartController {
 	// 			HttpStatus.OK);
     // }
 
-    @GetMapping (value = "/cart/getCart/{Cookie}")
-    public ResponseEntity<List<Item>> getCart(@PathVariable("Cookie") String cartId){
+    @GetMapping (value = "/cart/getCart/{CartId}")
+    public ResponseEntity<List<Item>> getCart(@PathVariable("CartId") String cartId){
         List<Item> cart = cartService.getCart(cartId);
         if(!cart.isEmpty()) {
         	return new ResponseEntity<List<Item>>(
@@ -46,13 +46,12 @@ public class CartController {
     			HttpStatus.NOT_FOUND);  
     }
 
-    @GetMapping(value = "/cart/addProductToCart/{Cookie}/{productId}/{quantity}")
+    @GetMapping(value = "/cart/addProductToCart/{CartId}/{productId}/{quantity}")
     public ResponseEntity<List<Item>> addItemToCart(
             @PathVariable("productId") Long productId,
             @PathVariable("quantity") Integer quantity,
-            @PathVariable("Cookie") String cartId,
+            @PathVariable("CartId") String cartId,
             HttpServletRequest request) {
-		System.out.println("product id test :"+productId+" "+quantity+" "+cartId);
         List<Item> cart = cartService.getCart(cartId);
 		System.out.println("cartId: " + cart);
         if(cart != null) {
