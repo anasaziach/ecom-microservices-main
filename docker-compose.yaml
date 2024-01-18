@@ -12,7 +12,7 @@ services:
       - MYSQL_DATABASE=mydb
 
   user-service:
-    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/user-service:1.1.36"
+    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/user-service:1.1.40"
     build: ./user-service
     container_name: user-service
     hostname: user-service
@@ -23,7 +23,7 @@ services:
 
   catalog-service:
     build: ./product-catalog-service
-    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/product-catalog-service:1.1.36"
+    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/product-catalog-service:1.1.40"
     container_name: catalog-service
     hostname: catalog-service
     ports:
@@ -34,19 +34,19 @@ services:
   gateway:
     build: ./gateway
     container_name: gateway
-    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/gateway:1.1.36"
+    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/gateway:1.1.40"
     ports:
      - "8080:8080"  
   test-db:
     build: ./test-db
     container_name: test-db
-    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/test-db:1.1.36"
+    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/test-db:1.1.40"
     ports:
      - "5000:5000"  
   order-service:
     build: ./order-service
     container_name: order-service
-    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/order-service:1.1.36"
+    image: "europe-central2-docker.pkg.dev/inspiring-tower-411321/projet/order-service:1.1.40"
     ports:
      - "8813:8813"
     depends_on:
