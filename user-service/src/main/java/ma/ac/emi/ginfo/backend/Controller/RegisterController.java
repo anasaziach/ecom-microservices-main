@@ -36,7 +36,6 @@ public class RegisterController {
 		@RequestParam String role,
 		HttpServletRequest request
 		){
-    	// if(user != null)
     		try {
 				User user = new User(userName , email , userPassword , active , null,role);
     			userService.saveUser(user);
@@ -47,8 +46,6 @@ public class RegisterController {
     		}catch (Exception e) {
     			e.printStackTrace();
     			return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
-		// }
-    	// return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
 			}
     }
 }
