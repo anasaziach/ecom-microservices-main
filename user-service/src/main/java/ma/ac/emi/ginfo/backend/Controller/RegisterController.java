@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +26,7 @@ public class RegisterController {
     @Autowired
     private HeaderGenerator headerGenerator;
     
-    @PostMapping(value = "/registration")
+    @GetMapping(value = "/registration")
 	@CrossOrigin("http://localhost:4200")
     public ResponseEntity<User> addUser(
 		@RequestParam String userName,
