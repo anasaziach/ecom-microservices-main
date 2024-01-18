@@ -15,6 +15,8 @@ import com.example.springbootredis.config.MicroservicesConfig;
 public class SpringBootRedisApplication {
 
 	public static void main(String[] args) {
+
+		
 		SpringApplication.run(SpringBootRedisApplication.class, args);
 	}
 
