@@ -8,5 +8,5 @@ spec:
   accessModes:
     - ReadOnlyMany
   gcePersistentDisk:
-    pdName: pvc-e5f41b7c-abfb-4cca-88f9-a0bf2d260a38
+    pdName: pvc-8877e630-0cd9-4651-bc64-6fe1e433eafa
     fsType: ext4
