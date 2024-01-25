@@ -57,5 +57,9 @@ public class GatewayApplication {
 				.path("/order/**")
 				.uri("http://order-service:8813/"))
 			.build();
-	} 
+	}
+	@Bean
+	public void test(){
+		System.out.println("ok");
+	}
 }
