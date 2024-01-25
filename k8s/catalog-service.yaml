@@ -17,7 +17,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: catalog-service
-        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/pi/product-catalog-service:1.1.74
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/pi/product-catalog-service:1.1.78
         imagePullPolicy: "Always"
         resources:
           requests:
