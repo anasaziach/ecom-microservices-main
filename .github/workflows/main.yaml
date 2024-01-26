@@ -11,9 +11,9 @@ on:
 env:
   PROJECT_ID: inspiring-tower-411321 # TODO: update Google Cloud project id
   GAR_LOCATION: europe-central2 # TODO: update Artifact Registry location
-  SERVICE: pi # TODO: update Cloud Run service name
+  SERVICE: pi2 # TODO: update Cloud Run service name
   REGION: europe-central2 # TODO: update Cloud Run service region
-  CLUSTER_NAME: pi
+  CLUSTER_NAME: pi2
 
 jobs:
   deploy:
