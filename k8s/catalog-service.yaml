@@ -17,7 +17,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: catalog-service
-        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/pi/product-catalog-service:1.1.82
+        image: europe-central2-docker.pkg.dev/inspiring-tower-411321/pi/product-catalog-service:1.1.84
         imagePullPolicy: "Always"
         resources:
           requests:
@@ -28,12 +28,6 @@ spec:
             cpu: 1000m
         ports:
         - containerPort: 8810
-    # spec:
-    #   containers:
-    #   - name: catalog-service
-    #     image: europe-central2-docker.pkg.dev/inspiring-tower-411321/pi/product-catalog-service:latest
-    #     ports:
-    #     - containerPort: 8810
 
 ---
 
